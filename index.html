@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C.A.R.E. - Comunidad Africana Residente en España</title>
     <style>
+        /* AJUSTE CLAVE PARA LOS ENLACES DEL MENÚ */
+        html {
+            scroll-behavior: smooth; /* Desplazamiento suave y fluido */
+            scroll-padding-top: 150px; /* Deja espacio exacto para que el menú fijo no tape el título */
+        }
+
         :root {
             --nigeria-green: #008751;       
             --nigeria-green-dark: #004d2e;  
@@ -153,12 +159,12 @@
             color: #fff;
         }
 
-        /* Hero Banner */
+        /* Hero Banner - CAMBIADO A IMAGEN DE LA SABANA AFRICANA */
         .hero {
-            background: linear-gradient(rgba(0, 77, 46, 0.85), rgba(22, 22, 22, 0.85)), url('https://images.unsplash.com/photo-1590075865003-e48277afd558?q=80&w=1600') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(22, 22, 22, 0.75)), url('https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1600&auto=format&fit=crop') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 160px 20px;
+            padding: 180px 20px;
             border-bottom: 8px solid var(--nigeria-gold);
             position: relative;
         }
@@ -190,13 +196,24 @@
         /* Tarjetas de Contenido */
         .content-card {
             background-color: var(--card-white); 
-            padding: 50px;
+            padding: 40px;
             border-radius: 16px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
             border-top: 8px solid var(--nigeria-green);
             margin-bottom: 40px;
             border-left: 1px solid rgba(0,0,0,0.03);
             border-right: 1px solid rgba(0,0,0,0.03);
+            overflow: hidden; /* Asegura que las imágenes hereden las esquinas redondeadas */
+        }
+
+        /* Estilo para las imágenes internas de las tarjetas */
+        .card-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .content-card h2 {
@@ -371,6 +388,9 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            html {
+                scroll-padding-top: 200px;
+            }
         }
 
         @media (max-width: 950px) {
@@ -382,6 +402,9 @@
             }
             .hero h2 {
                 font-size: 2.5rem;
+            }
+            .card-image {
+                height: 200px;
             }
         }
     </style>
@@ -435,7 +458,7 @@
         </div>
     </header>
 
-    <!-- Banner Principal -->
+    <!-- Banner Principal - AHORA CON LA SABANA AFRICANA -->
     <section class="hero" id="inicio">
         <h2>Fuerza, Progreso y Unidad</h2>
         <p>Impulsando el desarrollo sostenible, el empoderamiento legal y la plena inclusión de la comunidad africana y su gran diáspora nigeriana en España.</p>
@@ -446,6 +469,8 @@
         
         <main>
             <section class="content-card" id="quienes-somos">
+                <!-- Imagen añadida: Diáspora y Comunidad -->
+                <img class="card-image" src="https://images.unsplash.com/photo-1532625454261-365f04a63287?q=80&w=1000&auto=format&fit=crop" alt="Comunidad y Cooperación">
                 <h2>Quiénes Somos</h2>
                 <p>La <strong>Comunidad Africana Residente en España (C.A.R.E.)</strong> es una entidad de carácter civil, social e institucional, constituida legalmente y sin ánimo de lucro. Nacimos con el firme compromiso de mejorar de forma integral las condiciones materiales y sociales de los afrodescendientes en la sociedad española y europea, defendiendo activamente el acceso equitativo a una verdadera calidad de vida para todos.</p>
                 <p>Fundada originalmente en el año 2003, nuestra asociación cuenta con una fortísima e histórica influencia y participación de la <strong>comunidad nigeriana</strong>. Esta herencia se refleja en nuestro espíritu resiliente de emprendimiento, liderazgo y solidaridad vecinal. Buscamos canalizar de manera civilizada, coherente y constructiva el sentimiento de pertenencia de nuestros colectivos, aportando una visión afrocentrada que enriquezca el tejido social, político y económico de España.</p>
@@ -456,6 +481,8 @@
             </section>
 
             <section class="content-card" id="funcionamiento">
+                <!-- Imagen añadida: Trabajo en equipo y organización -->
+                <img class="card-image" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1000&auto=format&fit=crop" alt="Reunión y Trabajo en Equipo">
                 <h2>Funcionamiento</h2>
                 <p>C.A.R.E. se organiza de forma democrática y transparente. Nuestras asambleas generales garantizan la participación colectiva, promoviendo comisiones de trabajo especializadas compuestas por profesionales del ámbito social, legal y educativo.</p>
                 <p>Colaboramos estrechamente con administraciones públicas, sindicatos y redes del tercer sector europeo para monitorizar la integración civil. Nuestro funcionamiento se descentraliza mediante antenas locales dedicadas a la detección temprana de discursos de odio y la exclusión de personas migrantes.</p>
@@ -467,6 +494,8 @@
             </section>
 
             <section class="content-card" id="actividades">
+                <!-- Imagen añadida: Arte y Cultura de Nigeria / África -->
+                <img class="card-image" src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?q=80&w=1000&auto=format&fit=crop" alt="Cultura y Educación">
                 <h2>Actividades Principales</h2>
                 <p>Nuestros ejes operativos están diseñados para combatir el racismo y generar oportunidades reales de futuro:</p>
                 <ul class="styled-list">
@@ -477,11 +506,15 @@
             </section>
 
             <section class="content-card" id="care">
+                <!-- Imagen añadida: Apoyo y Acogida -->
+                <img class="card-image" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000&auto=format&fit=crop" alt="Proyecto CARE de Acogida">
                 <h2>El Proyecto CARE</h2>
                 <p>El corazón de nuestra intervención es el programa de acogida y mentoría ciudadana "CARE". Este proyecto funciona como una red de seguridad inmediata, proporcionando a los recién llegados las herramientas lingüísticas, el apoyo burocrático y el acompañamiento psicosocial necesarios para mitigar el choque de la migración y construir autonomía en su nuevo hogar.</p>
             </section>
 
             <section class="content-card" id="socios">
+                <!-- Imagen añadida: Manos Unidas / Alianzas -->
+                <img class="card-image" src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1000&auto=format&fit=crop" alt="Unión y Redes de Socios">
                 <h2>Socios y Red de Colaboradores</h2>
                 <p>Nuestra fuerza reside en la implicación de nuestros socios. Formar parte de C.A.R.E. permite estructurar comisiones de ayuda humanitaria directa, organizar redes de codesarrollo con los países de origen (fomentando proyectos bilaterales España-Nigeria) y sostener de forma limpia el tejido de resistencia antirracista.</p>
             </section>
