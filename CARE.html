@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.A.R.E. - Comunidad Africana Residente en España</title>
+    <style>
+        :root {
+            --nigeria-green: #008751;       
+            --nigeria-green-dark: #004d2e;  
+            --nigeria-gold: #df9f28;        
+            --nigeria-terracotta: #af3a26;  
+            --nigeria-black: #161616;
+            --card-white: rgba(255, 255, 255, 0.96);
+            --text-dark: #222222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f3ede2;
+            color: var(--text-dark);
+            line-height: 1.8;
+            
+            /* Fondo con patrón textil tradicional */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><g fill="none" stroke="%23008751" stroke-width="1" stroke-opacity="0.12"><path d="M0 0 L40 40 L80 0 M0 80 L40 40 L80 80 M40 0 L40 80 M0 40 L80 40"/><circle cx="40" cy="40" r="15" stroke="%23df9f28" stroke-opacity="0.15"/><circle cx="40" cy="40" r="25"/><polygon points="40,5 75,40 40,75 5,40" stroke="%23af3a26" stroke-opacity="0.1"/></g></svg>');
+            background-repeat: repeat;
+        }
+
+        /* Topbar / Lema Obligatorio */
+        .top-bar {
+            background-color: var(--nigeria-black);
+            color: #fff;
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            border-bottom: 4px solid var(--nigeria-gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Header Estructurado */
+        header {
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 6px solid var(--nigeria-green);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+        }
+
+        /* Contenedor del Logo */
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 65%;
+        }
+
+        /* Escudo del Sol Radiante */
+        .logo-escudo {
+            width: 55px;
+            height: 55px;
+            background-color: var(--nigeria-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid var(--nigeria-gold);
+            padding: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+        }
+
+        .logo-escudo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* TEXTOS DEL LOGO JERARQUIZADOS */
+        .logo-textos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* El nombre completo ahora es lo más grande antes que nada */
+        .logo-textos h1 {
+            color: var(--nigeria-black);
+            font-size: 1.65rem; /* Tamaño grande y destacado */
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+
+        /* Las siglas van abajo en secundario */
+        .logo-textos p {
+            font-size: 0.85rem; 
+            text-transform: uppercase;
+            color: var(--nigeria-green); /* Verde corporativo para el subtítulo */
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-top: 3px;
+            line-height: 1.2;
+        }
+
+        /* Menú de Navegación */
+        nav {
+            flex-shrink: 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            align-items: center;
+        }
+
+        nav ul li {
+            white-space: nowrap;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            padding: 10px 12px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--nigeria-green);
+            color: #fff;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(0, 77, 46, 0.85), rgba(22, 22, 22, 0.85)), url('https://images.unsplash.com/photo-1590075865003-e48277afd558?q=80&w=1600') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 160px 20px;
+            border-bottom: 8px solid var(--nigeria-gold);
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            font-weight: 300;
+        }
+
+        /* Contenedor Principal */
+        .main-container {
+            max-width: 1300px;
+            margin: 60px auto;
+            display: grid;
+            grid-template-columns: 2.3fr 1fr;
+            gap: 50px;
+            padding: 0 25px;
+        }
+
+        /* Tarjetas de Contenido */
+        .content-card {
+            background-color: var(--card-white); 
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+            border-top: 8px solid var(--nigeria-green);
+            margin-bottom: 40px;
+            border-left: 1px solid rgba(0,0,0,0.03);
+            border-right: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .content-card h2 {
+            color: var(--nigeria-black);
+            margin-bottom: 25px;
+            font-size: 2.4rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .content-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 180px;
+            height: 8px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="8" viewBox="0 0 30 8"><path d="M0 4 L10 0 L20 8 L30 4" fill="none" stroke="%23df9f28" stroke-width="2"/></svg>');
+            background-repeat: repeat-x;
+        }
+
+        .content-card p {
+            margin-bottom: 20px;
+            font-size: 1.15rem;
+            color: #333;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background-color: rgba(0, 135, 81, 0.06);
+            border-left: 8px solid var(--nigeria-green);
+            padding: 30px;
+            margin: 35px 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--nigeria-green-dark);
+        }
+
+        .styled-list {
+            margin: 25px 0 35px 25px;
+            list-style: none;
+        }
+
+        .styled-list li {
+            position: relative;
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+            padding-left: 35px;
+        }
+
+        .styled-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--nigeria-terracotta);
+            transform: rotate(45deg);
+        }
+
+        sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .widget {
+            background-color: var(--card-white);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .widget h3 {
+            color: var(--nigeria-black);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--nigeria-gold);
+            padding-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .donation-widget {
+            background-color: var(--nigeria-green-dark);
+            color: #fff;
+            border-top: 8px solid var(--nigeria-gold);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path d="M0 0 L30 30 M30 0 L0 30" stroke="%23ffffff" stroke-width="1" stroke-opacity="0.05"/></svg>');
+        }
+
+        .donation-widget h3 {
+            color: var(--nigeria-gold);
+            border-bottom-color: var(--nigeria-terracotta);
+        }
+
+        .account-box {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 5px solid var(--nigeria-gold);
+        }
+
+        .account-box strong {
+            color: var(--nigeria-gold);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .account-box code {
+            font-family: monospace;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            word-break: break-all;
+            color: #fff;
+        }
+
+        footer {
+            background-color: var(--nigeria-black);
+            color: #ccc;
+            padding: 60px 20px;
+            margin-top: 100px;
+            border-top: 6px solid var(--nigeria-green);
+        }
+
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-info h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .footer-info p {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #252525;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Ajustes de adaptabilidad */
+        @media (max-width: 1150px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .logo-box {
+                max-width: 100%;
+                flex-direction: column;
+                gap: 8px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 950px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Lema Identitario Superior -->
+    <div class="top-bar">
+        BUILDING THE CAPACITY OF PEOPLE OF MINORITY COMMUNITIES, TO COMBAT DISCRIMINATION AND HATE CRIME
+    </div>
+
+    <!-- Encabezado con Jerarquía Corregida -->
+    <header>
+        <div class="header-container">
+            <div class="logo-box">
+                <!-- Escudo Fijo -->
+                <div class="logo-escudo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="18" fill="#df9f28"/>
+                        <g stroke="#fff" stroke-width="4" stroke-linecap="round">
+                            <line x1="50" y1="12" x2="50" y2="24" />
+                            <line x1="50" y1="76" x2="50" y2="88" />
+                            <line x1="12" y1="50" x2="24" y2="50" />
+                            <line x1="76" y1="50" x2="88" y2="50" />
+                            <line x1="23" y1="23" x2="32" y2="32" />
+                            <line x1="68" y1="68" x2="77" y2="77" />
+                            <line x1="77" y1="23" x2="68" y2="32" />
+                            <line x1="32" y1="68" x2="23" y2="77" />
+                        </g>
+                    </svg>
+                </div>
+                <!-- Nombre Completo Grande en Primer Plano -->
+                <div class="logo-textos">
+                    <h1>Comunidad Africana Residente en España</h1>
+                    <p>C.A.R.E. ASOCIACIÓN</p>
+                </div>
+            </div>
+            
+            <!-- Menú de Navegación Alineado -->
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                    <li><a href="#funcionamiento">Funcionamiento</a></li>
+                    <li><a href="#actividades">Actividades</a></li>
+                    <li><a href="#care">CARE</a></li>
+                    <li><a href="#socios">Socios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero" id="inicio">
+        <h2>Fuerza, Progreso y Unidad</h2>
+        <p>Impulsando el desarrollo sostenible, el empoderamiento legal y la plena inclusión de la comunidad africana y su gran diáspora nigeriana en España.</p>
+    </section>
+
+    <!-- Cuerpo de la Web -->
+    <div class="main-container">
+        
+        <main>
+            <section class="content-card" id="quienes-somos">
+                <h2>Quiénes Somos</h2>
+                <p>La <strong>Comunidad Africana Residente en España (C.A.R.E.)</strong> es una entidad de carácter civil, social e institucional, constituida legalmente y sin ánimo de lucro. Nacimos con el firme compromiso de mejorar de forma integral las condiciones materiales y sociales de los afrodescendientes en la sociedad española y europea, defendiendo activamente el acceso equitativo a una verdadera calidad de vida para todos.</p>
+                <p>Fundada originalmente en el año 2003, nuestra asociación cuenta con una fortísima e histórica influencia y participación de la <strong>comunidad nigeriana</strong>. Esta herencia se refleja en nuestro espíritu resiliente de emprendimiento, liderazgo y solidaridad vecinal. Buscamos canalizar de manera civilizada, coherente y constructiva el sentimiento de pertenencia de nuestros colectivos, aportando una visión afrocentrada que enriquezca el tejido social, político y económico de España.</p>
+                <div class="highlight-box">
+                    "Guiados por los valores de unidad y progreso, trabajamos activamente en el ejercicio pleno de los derechos humanos, la equidad de género y la erradicación del racismo institucional o social."
+                </div>
+                <p>A través de nuestras oficinas e infraestructura en Asturias, gestionamos programas de inserción laboral, mediación intercultural y empoderamiento de personas que se encuentran en situaciones de riesgo o vulnerabilidad social, permitiéndoles convertirse en motores activos de cambio.</p>
+            </section>
+
+            <section class="content-card" id="funcionamiento">
+                <h2>Funcionamiento</h2>
+                <p>C.A.R.E. se organiza de forma democrática y transparente. Nuestras asambleas generales garantizan la participación colectiva, promoviendo comisiones de trabajo especializadas compuestas por profesionales del ámbito social, legal y educativo.</p>
+                <p>Colaboramos estrechamente con administraciones públicas, sindicatos y redes del tercer sector europeo para monitorizar la integración civil. Nuestro funcionamiento se descentraliza mediante antenas locales dedicadas a la detección temprana de discursos de odio y la exclusión de personas migrantes.</p>
+                <ul class="styled-list">
+                    <li><strong>Transparencia financiera:</strong> Auditorías internas de cada fondo recibido.</li>
+                    <li><strong>Mediación Intercultural:</strong> Equipos de traducción y acompañamiento en dialectos africanos clave e inglés para la comunidad nigeriana.</li>
+                    <li><strong>Asesoramiento Jurídico:</strong> Letrados dedicados en exclusiva al derecho de extranjería y asilo.</li>
+                </ul>
+            </section>
+
+            <section class="content-card" id="actividades">
+                <h2>Actividades Principales</h2>
+                <p>Nuestros ejes operativos están diseñados para combatir el racismo y generar oportunidades reales de futuro:</p>
+                <ul class="styled-list">
+                    <li><strong>Defensa contra Delitos de Odio y Perfilamiento Racial:</strong> Ofrecemos canales de denuncia segura y apoyo jurídico directo frente a abusos discriminatorios.</li>
+                    <li><strong>Orientación y Empleo:</strong> Impulsamos talleres de autoempleo aprovechando el potencial nigeriano en industrias creativas, comercio internacional y competencias digitales.</li>
+                    <li><strong>Eventos de Cohesión Cultural:</strong> Celebración de fechas nacionales (como el Día de la Independencia de Nigeria), foros de literatura africana y talleres de concienciación en escuelas locales.</li>
+                </ul>
+            </section>
+
+            <section class="content-card" id="care">
+                <h2>El Proyecto CARE</h2>
+                <p>El corazón de nuestra intervención es el programa de acogida y mentoría ciudadana "CARE". Este proyecto funciona como una red de seguridad inmediata, proporcionando a los recién llegados las herramientas lingüísticas, el apoyo burocrático y el acompañamiento psicosocial necesarios para mitigar el choque de la migración y construir autonomía en su nuevo hogar.</p>
+            </section>
+
+            <section class="content-card" id="socios">
+                <h2>Socios y Red de Colaboradores</h2>
+                <p>Nuestra fuerza reside en la implicación de nuestros socios. Formar parte de C.A.R.E. permite estructurar comisiones de ayuda humanitaria directa, organizar redes de codesarrollo con los países de origen (fomentando proyectos bilaterales España-Nigeria) y sostener de forma limpia el tejido de resistencia antirracista.</p>
+            </section>
+        </main>
+
+        <sidebar>
+            <div class="widget donation-widget">
+                <h3>Colabora / Donaciones</h3>
+                <p style="font-size: 1rem; margin-bottom: 20px; color: #eee;">Toda aportación económica respalda directamente nuestros programas de atención jurídica y lucha por los derechos civiles. Puedes colaborar en nuestras cuentas corrientes oficiales:</p>
+                
+                <div class="account-box">
+                    <strong>UNICAJA (20 dígitos)</strong>
+                    <code>ES11 2103 7001 68 0030247013</code>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3>Vías de Participación</h3>
+                <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">Si resides en Asturias y deseas sumarte a nuestras asambleas o colaborar en la red de traducción, puedes acudir a nuestras sesiones informativas bimensuales.</p>
+            </div>
+        </sidebar>
+
+    </div>
+
+    <!-- Pie de Página -->
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>Oficinas de Atención e Información — C.A.R.E.</h4>
+                <p>📍 <strong>Sede Oviedo:</strong> Calle rio Narcea nº 32 bajo   </p>
+            </div>
+            <div style="text-align: right; display: flex; flex-direction: column; justify-content: center;">
+                <p style="font-size: 1.3rem; color: #fff;">📞 Teléfono : <strong>985 29 88 50</strong></p>
+                <p style="color: var(--nigeria-gold); font-size: 0.95rem; margin-top: 5px;">Atención institucional de lunes a viernes.</p>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Comunidad Africana Residente en España (C.A.R.E.). Inspirados por la fuerza, la diversidad y la cultura de nuestra diáspora nigeriana. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
