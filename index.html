@@ -77,7 +77,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            max-width: 65%;
+            max-width: 45%;
         }
 
         /* Escudo del Sol Radiante */
@@ -107,20 +107,18 @@
             justify-content: center;
         }
 
-        /* El nombre completo ahora es lo más grande antes que nada */
         .logo-textos h1 {
             color: var(--nigeria-black);
-            font-size: 1.65rem; /* Tamaño grande y destacado */
+            font-size: 1.45rem; 
             font-weight: 800;
             line-height: 1.2;
             letter-spacing: -0.3px;
         }
 
-        /* Las siglas van abajo en secundario */
         .logo-textos p {
             font-size: 0.85rem; 
             text-transform: uppercase;
-            color: var(--nigeria-green); /* Verde corporativo para el subtítulo */
+            color: var(--nigeria-green); 
             letter-spacing: 2px;
             font-weight: 700;
             margin-top: 3px;
@@ -135,7 +133,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 5px;
+            gap: 4px;
             align-items: center;
         }
 
@@ -147,16 +145,40 @@
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             text-transform: uppercase;
-            padding: 10px 12px;
+            padding: 8px 10px;
             border-radius: 4px;
             transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
         nav ul li a:hover {
             background-color: var(--nigeria-green);
             color: #fff;
+        }
+
+        /* Destacados Especiales en el Menú */
+        nav ul li a.nav-tv {
+            color: #ff0000;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+        nav ul li a.nav-tv:hover {
+            background-color: #ff0000;
+            color: #fff;
+            border-color: #ff0000;
+        }
+
+        nav ul li a.nav-shop {
+            color: var(--nigeria-gold);
+            border: 1px solid rgba(223, 159, 40, 0.3);
+        }
+        nav ul li a.nav-shop:hover {
+            background-color: var(--nigeria-gold);
+            color: #fff;
+            border-color: var(--nigeria-gold);
         }
 
         /* Hero Banner - IMAGEN DE LA SABANA AFRICANA */
@@ -203,10 +225,9 @@
             margin-bottom: 40px;
             border-left: 1px solid rgba(0,0,0,0.03);
             border-right: 1px solid rgba(0,0,0,0.03);
-            overflow: hidden; /* Asegura que las imágenes hereden las esquinas redondeadas */
+            overflow: hidden;
         }
 
-        /* Estilo para las imágenes internas de las tarjetas */
         .card-image {
             width: 100%;
             height: 280px;
@@ -335,6 +356,7 @@
             color: #fff;
         }
 
+        /* Estructura Estética del Footer y Redes */
         footer {
             background-color: var(--nigeria-black);
             color: #ccc;
@@ -347,7 +369,7 @@
             max-width: 1300px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1.5fr 1fr 1fr;
             gap: 40px;
         }
 
@@ -363,6 +385,43 @@
             font-size: 1rem;
         }
 
+        /* Contenedor de Redes Sociales ultra estético */
+        .social-box h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            background: rgba(255,255,255,0.05);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn.fb { border-left-color: #1877f2; }
+        .social-btn.x { border-left-color: #fff; }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(5px);
+        }
+
         .footer-bottom {
             grid-column: 1 / -1;
             text-align: center;
@@ -373,7 +432,7 @@
         }
 
         /* Ajustes de adaptabilidad */
-        @media (max-width: 1150px) {
+        @media (max-width: 1250px) {
             .header-container {
                 flex-direction: column;
                 gap: 15px;
@@ -389,7 +448,7 @@
                 justify-content: center;
             }
             html {
-                scroll-padding-top: 200px;
+                scroll-padding-top: 240px;
             }
         }
 
@@ -402,9 +461,6 @@
             }
             .hero h2 {
                 font-size: 2.5rem;
-            }
-            .card-image {
-                height: 200px;
             }
         }
     </style>
@@ -420,7 +476,6 @@
     <header>
         <div class="header-container">
             <div class="logo-box">
-                <!-- Escudo Fijo -->
                 <div class="logo-escudo">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="50" cy="50" r="18" fill="#df9f28"/>
@@ -436,14 +491,13 @@
                         </g>
                     </svg>
                 </div>
-                <!-- Nombre Completo Grande en Primer Plano -->
                 <div class="logo-textos">
                     <h1>Comunidad Africana Residente en España</h1>
                     <p>C.A.R.E. ASOCIACIÓN</p>
                 </div>
             </div>
             
-            <!-- Menú de Navegación Alineado -->
+            <!-- Menú de Navegación con Redirecciones Externas -->
             <nav>
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
@@ -453,6 +507,9 @@
                     <li><a href="#care">CARE</a></li>
                     <li><a href="#socios">Socios</a></li>
                     <li><a href="#contacto">Contacto</a></li>
+                    <!-- LINKS SOLICITADOS INTEGRADOS EN NAVEGACIÓN -->
+                    <li><a href="https://www.youtube.com/@C.A.R.EEspa%C3%B1a" target="_blank" class="nav-tv">📺 TV CARE</a></li>
+                    <li><a href="https://www.amazon.com/stores/author/B0FM67LXK9/allbooks?ingress=0&visitId=de6027eb-0983-4c71-bfaa-13093f05a015&ref_=aufs_ap_ahdr_dsk_aa&ccs_id=a0001c85-3586-4954-ad5f-853f876d6f10" target="_blank" class="nav-shop">🛒 Ventas</a></li>
                 </ul>
             </nav>
         </div>
@@ -502,7 +559,6 @@
             </section>
 
             <section class="content-card" id="care">
-                <!-- IMAGEN OMITIDA SEGÚN PETICIÓN -->
                 <h2>El Proyecto CARE</h2>
                 <p>El corazón de nuestra intervención es el programa de acogida y mentoría ciudadana "CARE". Este proyecto funciona como una red de seguridad inmediata, proporcionando a los recién llegados las herramientas lingüísticas, el apoyo burocrático y el acompañamiento psicosocial necesarios para mitigar el choque de la migración y construir autonomía en su nuevo hogar.</p>
             </section>
@@ -533,17 +589,33 @@
 
     </div>
 
-    <!-- Pie de Página -->
+    <!-- Pie de Página Corregido con Redes Sociales -->
     <footer id="contacto">
         <div class="footer-container">
             <div class="footer-info">
-                <h4>Oficinas de Atención e Información — C.A.R.E.</h4>
-                <p>📍 <strong>Sede Oviedo:</strong> Calle rio Narcea nº 32 bajo   </p>
+                <h4>Oficinas — C.A.R.E.</h4>
+                <p>📍 <strong>Sede Oviedo:</strong> Calle rio Narcea nº 32 bajo</p>
+                <p style="font-size: 1.1rem; color: #fff; margin-top: 15px;">📞 Teléfono: <strong>985 29 88 50</strong></p>
             </div>
-            <div style="text-align: right; display: flex; flex-direction: column; justify-content: center;">
-                <p style="font-size: 1.3rem; color: #fff;">📞 Teléfono : <strong>985 29 88 50</strong></p>
-                <p style="color: var(--nigeria-gold); font-size: 0.95rem; margin-top: 5px;">Atención institucional de lunes a viernes.</p>
+
+            <!-- APARTADO DE REDES SOCIALES ULTRA ESTÉTICO -->
+            <div class="social-box">
+                <h4>Redes Sociales</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/ComunidadAfricanaResidenteEnEspana/" target="_blank" class="social-btn fb">
+                        📘 Facebook Oficial
+                    </a>
+                    <a href="https://x.com/Fromdiroots" target="_blank" class="social-btn x">
+                        ⚫ X (Twitter) Oficial
+                    </a>
+                </div>
             </div>
+
+            <div style="display: flex; flex-direction: column; justify-content: flex-start;">
+                <h4>Canal de Difusión</h4>
+                <p style="color: var(--nigeria-gold); font-size: 0.95rem;">Visita nuestro contenido en vídeo y tienda literaria oficial mediante los accesos directos ubicados en el menú superior.</p>
+            </div>
+
             <div class="footer-bottom">
                 &copy; 2026 Comunidad Africana Residente en España (C.A.R.E.). Inspirados por la fuerza, la diversidad y la cultura de nuestra diáspora nigeriana. Todos los derechos reservados.
             </div>
